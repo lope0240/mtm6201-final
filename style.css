@@ -1,0 +1,742 @@
+/* =========================================================
+   SHINRIN YOKU — MAIN STYLESHEET
+   Sections match the HTML comments 1:1 for easy scanning.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500&display=swap');
+
+/* ===== TOKENS ===== */
+:root {
+  /* color */
+  --bg-base: #0d0d0c;      /* main page background, near-black */
+  --bg-alt: #1a1a18;       /* elevated / alternating section background */
+  --text-heading: #f5f2ec; /* cream white, serif headings */
+  --text-body: #ababaa;    /* warm gray, paragraph text */
+  --accent: #c9a876;       /* gold — labels, borders, links, icons */
+  --accent-dark: #1a1a18;  /* dark text used ON gold buttons */
+  --hairline: rgba(201, 168, 118, 0.25);
+
+  /* type */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', -apple-system, sans-serif;
+
+  /* spacing */
+  --gutter: 6vw;
+  --section-py: 140px;
+}
+
+/* ===== RESET / BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--text-heading);
+  line-height: 1.15;
+}
+
+/* ===== REUSABLE: buttons & links ===== */
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid var(--accent);
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn--outline:hover {
+  background: var(--accent);
+  color: var(--accent-dark);
+}
+
+.btn--solid {
+  background: var(--accent);
+  color: var(--accent-dark);
+  border-color: var(--accent);
+}
+
+.btn--solid:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn--full {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+.link-underline {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 4px;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px var(--gutter);
+  position: relative;
+  z-index: 10;
+}
+
+.site-header__est {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+.site-header__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: auto;
+}
+
+.site-header__link {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.site-header__link:hover,
+.site-header__link.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.site-header__link--cta {
+  color: var(--text-heading);
+  border-bottom-color: currentColor;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+
+.hero__image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  font-size: clamp(36px, 4.5vw, 56px);
+  margin-bottom: 36px;
+}
+
+.hero__title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ===== TWO-COLUMN CONTENT SECTIONS (shared) ===== */
+.philosophy,
+.chef,
+.omakase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: var(--section-py) var(--gutter);
+}
+
+.philosophy__media {
+  position: relative;
+}
+
+.philosophy__label {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  background: var(--bg-alt);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 26px;
+  padding: 28px 36px;
+  z-index: 1;
+}
+
+.philosophy__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.philosophy__content p {
+  margin-bottom: 24px;
+}
+
+.philosophy__content .btn {
+  margin-top: 8px;
+}
+
+/* ===== CULINARY MASTERY (alt background, image right) ===== */
+.chef {
+  background: var(--bg-alt);
+}
+
+.chef__title {
+  font-size: 34px;
+  margin-bottom: 28px;
+}
+
+.chef__content p {
+  margin-bottom: 20px;
+}
+
+.chef__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--text-heading);
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 28px 0 32px;
+}
+
+.chef__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-banner__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 9, 8, 0.55);
+  z-index: 0;
+}
+
+.cta-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 0 24px;
+}
+
+.cta-banner__title {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.cta-banner__text {
+  margin-bottom: 32px;
+}
+
+/* ===== THE OMAKASE ===== */
+.omakase__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.omakase__title {
+  font-size: 30px;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.omakase__content p {
+  margin-bottom: 32px;
+}
+
+.omakase__pricing {
+  margin-bottom: 32px;
+}
+
+.omakase__price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+.omakase__price-row dd {
+  color: var(--text-heading);
+}
+
+/* ===== BREUVAGES ===== */
+.beverages {
+  background: var(--bg-alt);
+  text-align: center;
+  padding: var(--section-py) var(--gutter);
+}
+
+.beverages__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 28px;
+}
+
+.beverages__title {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.beverages__subtitle {
+  max-width: 520px;
+  margin: 0 auto 60px;
+}
+
+.beverages__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.beverages__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 18px;
+}
+
+.beverages__item figcaption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text-heading);
+}
+
+/* ===== CONTACT & INQUIRIES ===== */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: var(--section-py) var(--gutter);
+}
+
+.contact__title {
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.contact__map {
+  position: relative;
+  background: var(--bg-alt);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__map-pin {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.contact__address {
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--text-heading);
+}
+
+.contact__details {
+  list-style: none;
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.contact__details li {
+  margin-bottom: 8px;
+}
+
+.contact__hours {
+  margin-top: 32px;
+}
+
+.contact__hours h3 {
+  font-size: 15px;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.contact__hours-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 320px;
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+.form-field {
+  margin-bottom: 28px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-body);
+  margin-bottom: 10px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--text-heading);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 8px 0;
+  resize: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #5a5a57;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  text-align: center;
+  padding: 70px var(--gutter) 40px;
+}
+
+.site-footer__logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  margin-bottom: 24px;
+}
+
+.site-footer__nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.site-footer__nav a {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+.site-footer__nav a:hover {
+  color: var(--accent);
+}
+
+.site-footer__copyright {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a5a57;
+}
+
+/* =========================================================
+   SUB-PAGE PATTERNS (menu.html / contact.html / media.html)
+   ========================================================= */
+
+.page-intro {
+  text-align: center;
+  padding: 160px var(--gutter) 80px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.page-intro__title {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+/* ----- Menu page ----- */
+.menu-section {
+  padding: var(--section-py) var(--gutter);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.menu-section--alt {
+  background: var(--bg-alt);
+  max-width: none;
+  text-align: center;
+}
+
+.menu-section__title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.menu-section--alt .menu-section__title {
+  margin-bottom: 16px;
+}
+
+.menu-section__subtitle {
+  max-width: 480px;
+  margin: 0 auto 48px;
+}
+
+.menu-list__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.menu-list--drinks {
+  max-width: 520px;
+  margin: 0 auto 48px;
+  text-align: left;
+}
+
+.menu-list__item dt {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.menu-list__item dd {
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.menu-list__price {
+  font-size: 14px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.menu-pricing {
+  margin-top: 48px;
+  border-top: 1px solid var(--hairline);
+}
+
+.menu-pricing__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.menu-note {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #6b6b68;
+  line-height: 1.6;
+}
+
+/* ----- Contact page ----- */
+.contact__form-wrap .contact__title {
+  margin-bottom: 32px;
+}
+
+/* ----- Media page ----- */
+.press {
+  padding: var(--section-py) var(--gutter);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.press__title {
+  font-size: 32px;
+  margin-bottom: 48px;
+}
+
+.press__list {
+  list-style: none;
+  display: grid;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.press__outlet {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--text-heading);
+  margin-bottom: 10px;
+}
+
+.press__quote {
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.gallery {
+  background: var(--bg-alt);
+  padding: var(--section-py) var(--gutter);
+}
+
+.gallery__title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 48px;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .philosophy,
+  .chef,
+  .omakase,
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .chef {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .beverages__grid,
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .site-header__logo {
+    position: static;
+    transform: none;
+  }
+}
