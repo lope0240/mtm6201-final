@@ -576,6 +576,9 @@ h3 {
   background-image:
     linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
     url(images/image-ver-1.1.avif);
+    background-size: 130%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* ----- Menu page ----- */
