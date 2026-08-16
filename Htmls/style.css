@@ -581,6 +581,14 @@ h3 {
     background-repeat: no-repeat;
 }
 
+/* .page-intro--contact{
+  linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
+    url(image/im);
+    background-size: 130%;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
 /* ----- Menu page ----- */
 .menu-section {
   padding: var(--section-py) var(--gutter);
