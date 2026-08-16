@@ -581,13 +581,11 @@ h3 {
     background-repeat: no-repeat;
 }
 
-/* .page-intro--contact{
-  linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
-    url(image/im);
-    background-size: 130%;
-    background-position: center;
-    background-repeat: no-repeat;
-} */
+.page-intro--contact {
+  background-image:
+    linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
+    url('images/image-ver-contact.avif');
+}
 
 /* ----- Menu page ----- */
 .menu-section {
