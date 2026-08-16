@@ -405,9 +405,11 @@ h1, h2, h3 {
 }
 
 /* ===== CONTACT & INQUIRIES ===== */
+
 .contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 80px;
   padding: var(--section-py) var(--gutter);
 }
