@@ -573,7 +573,9 @@ h3 {
 }
 
 .page-intro--menu {
-  background-image: linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)), url(images/image-ver-1.1.avif);
+  background-image:
+    linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
+    url(images/image-ver-1.1.avif);
 }
 
 /* ----- Menu page ----- */
