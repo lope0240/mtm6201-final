@@ -559,7 +559,7 @@ h3 {
 /* =========================================================
    SUB-PAGE PATTERNS (menu.html / contact.html / media.html)
    ========================================================= */
-  ========================================================= */
+  /*======================================================== */
  
 .page-intro {
   text-align: center;
@@ -587,19 +587,19 @@ h3 {
 .page-intro--menu {
   background-image:
     linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
-    url('images/menu-hero.jpg');
+    url('images/image-ver-1.1.avif');
 }
  
 .page-intro--contact {
   background-image:
     linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
-    url('images/contact-hero.jpg');
+    url('images/image-ver-contact.avif');
 }
  
 .page-intro--media {
   background-image:
     linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
-    url('images/media-hero.jpg');
+    url('images/image-media-1.1.avif');
 }
  
 .page-intro--menu .page-intro__title,
