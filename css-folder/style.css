@@ -571,19 +571,19 @@ h1, h2, h3 {
 .page-intro--menu {
   background-image:
     linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
-    url('images/image-ver-1.1.avif');
+    url('../htmls/images/image-ver-1.1.avif');
 }
 
 .page-intro--contact {
   background-image:
     linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
-    url('images/image-ver-contact.avif');
+    url('../htmls/images/image-ver-contact.avif');
 }
 
 .page-intro--media {
   background-image:
     linear-gradient(rgba(13, 13, 12, 0.75), rgba(13, 13, 12, 0.75)),
-    url('images/image-ver-3.avif');
+    url('../htmls/images/image-ver-3.avif');
 }
 
 .page-intro--menu .page-intro__title,
